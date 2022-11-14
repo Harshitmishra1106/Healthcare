@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeightLarge"
+    android:id="@+id/linearLayout"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Date"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/textView"
+        android:layout_toRightOf="@id/textView"
+        android:layout_marginLeft="10dp"
+        android:text="Time"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/textView1"
+        android:layout_toRightOf="@id/textView1"
+        android:text="Temperature"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/textView2"
+        android:layout_toRightOf="@id/textView2"
+        android:text="Pulse"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/textView3"
+        android:layout_toRightOf="@id/textView3"
+        android:text="Oxygen"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:layout_weight="1"/>
+
+</LinearLayout>
