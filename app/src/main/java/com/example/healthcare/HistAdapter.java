@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
     private HistModel[] histModel;
 
@@ -32,6 +34,19 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final HistModel myhistModel = histModel[position];
+        holder.textView.setText(histModel[position].getDate());
+        holder.textView1.setText(histModel[position].getTime());
+        holder.textView2.setText(histModel[position].getTemperature());
+        holder.textView3.setText(histModel[position].getPulse());
+        holder.textView4.setText(histModel[position].getOxygen());
+        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(view.getContext(),"click on item of date "+myhistModel.getDate(),Toast.LENGTH_LONG).show();
+            }
+        });
+
 
     }
 
@@ -57,5 +72,8 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
             this.textView4 = (TextView) itemView.findViewById(R.id.textView4);
             linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
         }
+
+
     }
+
 }
