@@ -51,7 +51,7 @@ public class History extends AppCompatActivity {
         HistAdapter adapter = new HistAdapter(histModel);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(histadapter);
+        recyclerView.setAdapter(adapter);
 
         downLd.setOnClickListener(new View.OnClickListener() {
             @Override

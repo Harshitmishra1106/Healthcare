@@ -105,7 +105,7 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        Button his = findViewById(R.id.history);
+        Button his = findViewById(R.id.button);
         his.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
