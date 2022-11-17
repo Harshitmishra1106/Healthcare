@@ -13,39 +13,40 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
-    private HistModel[] histModel;
+    private final HistModel[] histData;
 
 
 
     // RecyclerView recyclerView;
 
-    public HistAdapter(HistModel[] histModel) {
-        this.histModel=histModel;
+    public HistAdapter(HistModel[] histData) {
+        this.histData=histData;
     }
 
 
+    @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.history_item, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+        return new ViewHolder(listItem);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final HistModel myhistModel = histModel[position];
-        holder.textView.setText(histModel[position].getDate());
-        holder.textView1.setText(histModel[position].getTime());
-        holder.textView2.setText(histModel[position].getTemperature());
-        holder.textView3.setText(histModel[position].getPulse());
-        holder.textView4.setText(histModel[position].getOxygen());
+    public void onBindViewHolder(@NonNull ViewHolder holder,int position) {
+        HistModel histModel = histData[position];
+        holder.textView.setText(histModel.getDate());
+        holder.textView1.setText(histModel.getTime());
+        holder.textView2.setText(histModel.getTemperature());
+        holder.textView3.setText(histModel.getPulse());
+        holder.textView4.setText(histModel.getOxygen());
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(),"click on item of date "+myhistModel.getDate(),Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "records ", Toast.LENGTH_SHORT).show();
             }
         });
+        
 
 
     }
@@ -53,7 +54,7 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return histModel.length;
+        return histData.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -65,12 +66,12 @@ public class HistAdapter extends RecyclerView.Adapter<HistAdapter.ViewHolder> {
         public LinearLayout linearLayout;
         public ViewHolder(View itemView) {
             super(itemView);
-            this.textView = (TextView) itemView.findViewById(R.id.textView);
-            this.textView1 = (TextView) itemView.findViewById(R.id.textView1);
-            this.textView2 = (TextView) itemView.findViewById(R.id.textView2);
-            this.textView3 = (TextView) itemView.findViewById(R.id.textView3);
-            this.textView4 = (TextView) itemView.findViewById(R.id.textView4);
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+            this.textView =  itemView.findViewById(R.id.textView);
+            this.textView1 =  itemView.findViewById(R.id.textView1);
+            this.textView2 =  itemView.findViewById(R.id.textView2);
+            this.textView3 =  itemView.findViewById(R.id.textView3);
+            this.textView4 =  itemView.findViewById(R.id.textView4);
+            linearLayout =  itemView.findViewById(R.id.linearLayout);
         }
 
 
