@@ -14,6 +14,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -23,7 +24,7 @@ import com.google.firebase.storage.StorageReference;
 
 public class History extends AppCompatActivity {
 
-    Button downLd;
+
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
 
@@ -33,6 +34,14 @@ public class History extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
         Button downLd = findViewById(R.id.downLd);
+        ImageView back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),Dashboard.class);
+                startActivity(i);
+            }
+        });
         HistModel[] histModel = new HistModel[] {
                 new HistModel("12/10/22","2:40","96.4°C","76","96"),
                 new HistModel("13/10/22","8:15","97.1°C","79","95.2"),
@@ -48,7 +57,7 @@ public class History extends AppCompatActivity {
                 new HistModel("17/11/22","21:35","104.7°C","98","96.3"),
         };
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
-        HistAdapter adapter = new HistAdapter(histModel);
+        HistAdapter histadapter = new HistAdapter(histModel);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(histadapter);

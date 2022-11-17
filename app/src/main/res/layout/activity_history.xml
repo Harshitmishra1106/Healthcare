@@ -27,6 +27,7 @@
         android:layout_gravity="center"
         android:textSize="30sp"
         android:gravity="center"/>
+    </LinearLayout>
     <Button
         android:id="@+id/downLd"
         android:layout_width="match_parent"
