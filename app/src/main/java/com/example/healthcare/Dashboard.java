@@ -2,6 +2,9 @@ package com.example.healthcare;
 
 import static android.content.ContentValues.TAG;
 
+import static java.lang.Float.parseFloat;
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -66,6 +69,16 @@ public class Dashboard extends AppCompatActivity {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue().toString();
                 temp.setText(value+" °C");
+                TextView suggest_temp = findViewById(R.id.sug_temp);
+                if(parseFloat(value)<38 && parseFloat(value)>=37.5){
+                    suggest_temp.setText("NORMAL");
+                }
+                else if(parseFloat(value)<=39.5 && parseFloat(value)>=38)
+                    suggest_temp.setText("FEVER");
+                else if(parseFloat(value)>39.5)
+                    suggest_temp.setText("HIGH FEVER");
+                else if(parseFloat(value)>41)
+                    suggest_temp.setText("VERY HIGH FEVER");
             }
 
             @Override
@@ -96,6 +109,16 @@ public class Dashboard extends AppCompatActivity {
                 // whenever data at this location is updated.
                 String value = dataSnapshot.getValue().toString();
                 oxy.setText(value+"%");
+                TextView suggest = findViewById(R.id.sugg);
+                Button chip = findViewById(R.id.chip_button);
+                if(parseInt(value)<=90){
+                    suggest.setText("Use Ventilator");
+                    chip.setVisibility(View.VISIBLE);
+                }
+                else {
+                    suggest.setText(null);
+                    chip.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override

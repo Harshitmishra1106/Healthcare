@@ -33,7 +33,7 @@ public class History extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-        Button downLd = findViewById(R.id.downLd);
+        ImageView downLd = findViewById(R.id.downLd);
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +57,7 @@ public class History extends AppCompatActivity {
                 new HistModel("17/11/22","21:35","104.7°C","98","96.3"),
         };
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
-        HistAdapter histadapter = new HistAdapter(histModel);
+        HistAdapter adapter = new HistAdapter(histModel);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
